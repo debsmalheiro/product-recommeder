@@ -30,11 +30,8 @@ const getRecommendations = (
       return acc;
     }, null)
 
-    console.log("Produto unico:", lastProduct);
     return lastProduct ? [lastProduct] : [];
   }
-
-  console.log("Multiplos produtos:", recommendedProducts);
 
   return recommendedProducts;
 };
