@@ -1,7 +1,6 @@
 import { normalizeData } from "../utils/normalizeData";
 
 const getRecommendations = (
-
   formData = { selectedPreferences: [], selectedFeatures: [], selectedRecommendationType: '' },
   products
 ) => {
@@ -21,7 +20,21 @@ const getRecommendations = (
   })
 
   const recommendedProducts = compatibleProducts.filter(p => p.compatibilityLevel > 0);
-  console.log("Produtos recomendados:", recommendedProducts);
+
+  if (formData.selectedRecommendationType === 'SingleProduct') {
+    const lastProduct = recommendedProducts.reduce((acc, product) => {
+      if (!acc || product.compatibilityLevel >= acc.compatibilityLevel) {
+        return product;
+      }
+
+      return acc;
+    }, null)
+
+    console.log("Produto unico:", lastProduct);
+    return lastProduct ? [lastProduct] : [];
+  }
+
+  console.log("Multiplos produtos:", recommendedProducts);
 
   return recommendedProducts;
 };
