@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import RecommendationList from './RecommendationList';
+import RecommendationList from './index';
 
 describe('RecommendationList component', () => {
   it('deve renderizar o title do componente', () => {
