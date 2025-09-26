@@ -5,7 +5,7 @@ const getProducts = async () => {
     const response = await fetch(`${baseURL}/products`);
 
     if (!response.ok) {
-      throw new Error(`Erro ao obter os produtos: ${response.status} ${response.statusText}`);
+      throw new Error(`${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
