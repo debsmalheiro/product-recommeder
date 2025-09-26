@@ -18,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "report:coverage": "npm run test:coverage && open-cli coverage/lcov-report/index.html",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
@@ -43,5 +45,12 @@
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.tsx",
+      "!src/**/*.d.ts"
+    ]
   }
 }
